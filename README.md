@@ -3,9 +3,8 @@
 JWT-Auth is a...
 
 ## Built with
-### Server                              ### Client
-- React JS                              - TypeScript
-- Express                               - Redux / Redux Toolkit
+### Server                              
+- Express                               
 - cors
 - cookie-parser
 - nodemon
@@ -16,6 +15,10 @@ JWT-Auth is a...
 - bcrypt
 - uuid
 
+### Client
+- React JS
+- TypeScript
+- Redux / Redux Toolkit
 ## How to use this app locally?
 
 **Pre-requisites**
@@ -30,7 +33,7 @@ JWT-Auth is a...
 
 2. Run the following commands:
 
-- git clone https://github.com/syritchenkom/bookmark.git
+- git clone https://github.com/syritchenkom/jwt-auth
 
 - cd bookmark
 
