@@ -14,7 +14,7 @@ class UserService {
             throw new Error(`User with email ${email} is in database already`)
         }
         //In this hashing password
-        const hashPassword = await bcrypt.hash(password, 3); 
+        const hashPassword = await bcrypt.hash(password, 3); //3 is salt 
         //Here we have link to activation
         const activationLink = uuid.v4(); //v34fa-asfasf- 142saf-sa-asf
         
