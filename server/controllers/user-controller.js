@@ -1,51 +1,77 @@
 const userService = require("../service/user-service");
 
-class UserController {
-    async registration(req, res, next){
-        try {
-            const {email, password} = req.body;
-            const  userData = await userService.registration(email, password);
-            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
-            return res.json(userData);      
-        }catch(err){
-            console.log(err);   
-        }
-    }
-    async login(req, res, next){
-        try {
+// Function for user registration
+const registrationController = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const userData = await userService.registration(email, password);
 
-        }catch(err){
-            console.log(err);   
-        }
-    }
-    async logout(req, res, next){
-        try {
+    // Set the refreshToken cookie with HttpOnly flag for security
+    res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
+    
+    // Send the response with userData containing tokens and user info
+    return res.json(userData);      
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-        }catch(err){
-            console.log(err);   
-        }
-    }
-    async activate(req, res, next){
-        try {
+// Function for user login
+const loginController = async (req, res, next) => {
+  try {
+    // Implement the login logic here
 
-        }catch(err){
-            console.log(err);   
-        }
-    }
-    async refresh(req, res, next){
-        try {
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-        }catch(err){
-            console.log(err);   
-        }
-    }
-    async getUsers(req, res, next){
-        try {
-            res.json(['123', '456']);
-        }catch(err){
-            console.log(err);   
-        }
-    }
-}
+// Function for user logout
+const logoutController = async (req, res, next) => {
+  try {
+    // Implement the logout logic here
 
-module.exports = new UserController();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Function for user account activation
+const activateController = async (req, res, next) => {
+  try {
+    // Implement the activation logic here
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Function for token refresh
+const refreshController = async (req, res, next) => {
+  try {
+    // Implement the token refresh logic here
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Function to get a list of users
+const getUsersController = async (req, res, next) => {
+  try {
+    // Dummy response, replace with actual logic to fetch users from the database
+    res.json(['123', '456']);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Exporting each controller function separately
+module.exports = {
+  registrationController,
+  loginController,
+  logoutController,
+  activateController,
+  refreshController,
+  getUsersController,
+};

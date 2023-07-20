@@ -5,15 +5,19 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const router = require('./router/index');
 
+// Set up default port (5000) or use the value from environment variables
 const PORT = process.env.PORT || 5000;
+
+// Create an instance of the Express application
 const app = express();
 
+// Middleware setup
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use('/api', router);
 
- 
+// Connect to MongoDB database using Mongoose
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, 

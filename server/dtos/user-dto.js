@@ -1,11 +1,11 @@
-module.exports = class UserDto {
-    email; // dto translation data transfer object
-    id;
-    isActivated;
+const createUserDto = (model) => {
+    const userDto = {
+        email: model.email,
+        id: model._id,
+        isActivated: model.isActivated,
+    };
 
-    constructor(model) {
-        this.email = model.email;
-        this.id = model._id;
-        this.isActivated = model.isActivated;
-    }
-}
+    return userDto;
+};
+
+module.exports = createUserDto;
